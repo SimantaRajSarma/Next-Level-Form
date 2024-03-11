@@ -29,7 +29,7 @@ const App: React.FC = () => {
     },
   ];
 
-  const handleSubmit = (formData: any) => {
+  const sendFormData = (formData: any) => {
     console.log(formData);
   };
 
@@ -45,8 +45,8 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h1 className='titleStyle'>Ye Form Nehi hai bhai :)</h1>
-      <Form config={config} onSubmit={handleSubmit} />
+      <h1 className='titleStyle font-bold'>Ye Form Nehi hai bhai :)</h1>
+      <Form config={config} onSubmit={sendFormData} />
     </div>
   );
 };
