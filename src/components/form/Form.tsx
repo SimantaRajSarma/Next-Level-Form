@@ -29,7 +29,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({ config, onSubmit }) => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    // e.preventDefault();
     const formattedData: { [key: string]: string } = {};
     config.forEach(field => {
       formattedData[field.tag] = formData[field.tag];
