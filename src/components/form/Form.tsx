@@ -1,5 +1,5 @@
 // DynamicForm.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import InputField from './InputField';
 import TextAreaField from './TextAreaField';
 import { Button } from "@/components/ui/button"
@@ -53,7 +53,7 @@ const DynamicForm: React.FC<DynamicFormProps> = ({ config, onSubmit }) => {
             />
             </div>
           );
-        } else if (field.component === 'text-area') {
+        } else if (field.component === 'textarea') {
           return (
             <div key={index} style={{ marginBottom: '10px' }}>
             <TextAreaField

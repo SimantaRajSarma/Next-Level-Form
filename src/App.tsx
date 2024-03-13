@@ -1,25 +1,41 @@
 // App.tsx
-import React from 'react';
 import Form from './components/form/Form'
 
 const App: React.FC = () => {
-  const config = [
+
+  interface InputFieldConfig {
+    component: 'input';
+    placeholder: string;
+    tag: string;
+    type: string;
+}
+
+interface TextAreaFieldConfig {
+    component: 'textarea';
+    placeholder: string;
+    tag: string;
+    type?: never;
+}
+
+type FieldConfig = InputFieldConfig | TextAreaFieldConfig;
+
+const config: FieldConfig[] = [
     {
-      component: "input",
-      placeholder: "username",
-      tag: "username",
-      type: "text",
+        component: 'input',
+        placeholder: 'Username',
+        tag: 'username',
+        type: 'text',
     },
     {
-      component: "input",
-      placeholder: "Enter your password...",
-      tag: "password",
-      type: "password",
+        component: 'input',
+        placeholder: 'Password',
+        tag: 'password',
+        type: 'password',
     },
     {
-      component: "text-area",
-      placeholder: "address",
-      tag: "address",
+        component: 'textarea',
+        placeholder: 'Address',
+        tag: 'address',
     },
     {
       component: "input",
@@ -27,21 +43,13 @@ const App: React.FC = () => {
       tag: "gender",
       type: "text",
     },
-  ];
+
+];
+
 
   const sendFormData = (formData: any) => {
     console.log(formData);
   };
-
-  const validateConfig = () => {
-    config.forEach(field => {
-      if (field.component === 'text-area' && field.type) {
-        throw new Error(`'type' property is not allowed for 'text-area' components in config`);
-      }
-    });
-  };
-
-  validateConfig();
 
   return (
     <div>
